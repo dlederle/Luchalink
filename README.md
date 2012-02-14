@@ -4,7 +4,11 @@ Luchalink is (will be) a framework for connecting players to each other in order
 It is built for the LAMP stack, and will maintain a players match history in different games and determine their skill ranking from there.
 
 *Team Bench* Members:
+
 Dylan
+
 Ross
+
 KDawg
+
 Joe
