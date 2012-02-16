@@ -4,17 +4,17 @@ body {
 
 
 #logo {
-     background: #ffffff;
+     background: #E6C973;
      border-radius: 20px;
      -moz-border-radius: 20px;
      -webkit-border-radius: 20px;
-     border: 1px solid #800000;
+     border: 1px solid #4DB788;
 
 
      text-align: center;
      display: block;
      height: 75px;
-     color: #857D79;
+     color: #332F3E;
      font-weight: bold;
      letter-spacing: -4px;
      text-shadow: 1px 2px 2px #000;
