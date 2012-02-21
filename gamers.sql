@@ -29,6 +29,7 @@ CREATE TABLE `Players`(
 	`password` varchar(40) NOT NULL,
 	`wins` int NOT NULL,
 	`losses` int NOT NULL,
+	`ties`  int NOT NULL,
 	-- (5,2) = aaa.bb format
 	`win/loss_ratio` dec(5,2) NOT NULL,
 	PRIMARY KEY (`user_name`)
