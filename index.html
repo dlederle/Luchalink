@@ -18,7 +18,7 @@
                     <input type=text size=25 name="email" id="topbarEmail">
                     <label for="topbarPass">Password: </label>
                     <input type=password size=25 name="password" id="topbarPass">
-                    <input class="btn primary" type=submit name=submit value = "Log In">
+                    <input class="btn primary" type=submit name=submit value="Log In">
                </form>
                </div><!--login-->
           </div><!--topbar-->
@@ -26,14 +26,23 @@
                <div class="span2" id="sidebar">
                     <h2>Games:</h2>
                     <ul>
-                         <li>Oh damn, we don't have any games yet</li>
+                         <li>Oh woops, we don't have any games yet</li>
                          <li><a href="gamepage.html">Temp Game Page</a></li>
                          <li>But if we did, they could scroll up here</li>
                     </ul>
                </div><!--sidebar-->
                <div class="span8" id="body">
-                    <h1>SOME MORE LUCHALINK INFO!!</h1>
-                    <p>Lucha-link is a blah-dy-blah blah</p>
+                    <h1>Create an account: </h1>
+                    <form class="pull-left form-stacked" action= "registerController.php" method = "GET">
+                         <label for="newEmail">Email: </label>
+                         <input type=text size=25 name="email" id="newEmail">
+                         <label for="newPass">Password: </label>
+                         <input type=password size=25 name="password" id="newPass">
+                         <label for="confirmPass">Confirm Password: </label>
+                         <input type=password size=25 name="password" id="confirmPass">
+                         <input class="btn primary" type=submit name=submit value="Create Account">
+                    </form>
+
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
