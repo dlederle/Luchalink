@@ -1,6 +1,7 @@
 
 DROP DATABASE IF EXISTS Luchalink;
 CREATE DATABASE IF NOT EXISTS Luchalink;
+GRANT ALL PRIVILEGES ON Luchalink.* TO 'luchauser'@'localhost' identified by 'kevinislame';
 USE Luchalink;
 
 --
@@ -13,6 +14,8 @@ CREATE TABLE `Users`(
 	`first_name` varchar(20) NOT NULL DEFAULT '',
 	`last_name` varchar(30) NOT NULL DEFAULT '',
 	`email` varchar(100) NOT NULL DEFAULT '',
+	`password` varchar(40) NOT NULL,
+	-- password will use SHA1 hash, that's 40 characters long
 	`user_name` varchar(20) NOT NULL,
 	PRIMARY KEY (`player_id`)
 	-- NEED FOREIGN KEY TO JOIN TABLES...USE `user_name` as F.K.
@@ -25,8 +28,6 @@ CREATE TABLE `Users`(
 DROP TABLE IF EXISTS `Players`;
 CREATE TABLE `Players`(
 	`user_name` varchar(20) NOT NULL,
-	-- password will use SHA1 hash, that's 40 characters long
-	`password` varchar(40) NOT NULL,
 	`wins` int NOT NULL,
 	`losses` int NOT NULL,
 	`ties`  int NOT NULL,
