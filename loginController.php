@@ -2,13 +2,13 @@
 
 include "db_connect.php";
 
-$email = $_POST['email'];
-$pw = $_POST['password'];
+$email = $_GET['email'];
+$pw = $_GET['password'];
 
 $query = "SELECT * FROM Users WHERE email = '$email' AND password = '$pw'";
 $result = mysqli_query($db, $query);
 
-//echo"'$query'";
+echo"'$query'";
 
 if (mysqli_fetch_array($result)){
 
@@ -17,7 +17,7 @@ if (mysqli_fetch_array($result)){
 	exit();
 }
 else{
-	header("Location: index.html?e=badLogin");
+	header("Location: loginController.php");
 	exit();
 }
 
