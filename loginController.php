@@ -10,9 +10,10 @@ $result = mysqli_query($db, $query);
 
 //echo"'$query'";
 
-if (mysqli_fetch_array($result)){
+if ($row = mysqli_fetch_array($result)){
 
 	$_SESSION['current_user'] = $email;
+	$_SESSION['user_name'] = $row['user_name'];
 	header("Location: playerProfile.php");
 	exit();
 }
