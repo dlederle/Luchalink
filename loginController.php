@@ -18,7 +18,7 @@ if ($row = mysqli_fetch_array($result)){
 	exit();
 }
 else{
-	header("Location: loginController.php");
+	header("Location: index.html?error=badlogin");
 	exit();
 }
 
