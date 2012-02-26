@@ -16,7 +16,7 @@
                     <form class="pull-right form-stacked" action="SOMELOGOUT.php" method = "GET">
                          <h3>Pretend you're logged in :) </h3>
                          <a href="playerProfile.html?id=myid">My Profile</a>
-                         <a href="dashboard.html">My Dashboard</a>
+                         <a href="dashboard.php">My Dashboard</a>
                          <input class="btn primary" type=submit name=submit value = "Log Out">
                     </form>
                </div><!--login-->
