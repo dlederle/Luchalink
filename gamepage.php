@@ -36,7 +36,7 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-                    <p>Herpa-derpa game description, this is a cool game, and amazing things happen and you should play etc</p>
+                    <p>Blah blah, game description, this is a cool game, and amazing things happen and you should play etc</p>
                     <h3><a href="im-not-sure">Launch *SOME GAME*</a></h3>
                     And it should probably lightbox up over top of stuff, but i dunno how to do that, or if its even possible with html5 games...but il figure it out laters
                </div><!--body-->

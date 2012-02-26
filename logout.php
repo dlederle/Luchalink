@@ -20,6 +20,6 @@
 	//Finally, destroy the session
 	session_destroy();
 
-	//Redirect user to login page
-	header("Location:  login.html");
+	//Redirect user to main page
+	header("Location:  index.html");
 ?>

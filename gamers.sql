@@ -8,6 +8,10 @@ USE Luchalink;
 -- Table structure for table `users`
 --
 
+-- In the register page, I'm only requiring a password and an email
+-- The rest can be put up after in a "details" page
+-- -dlederle
+
 DROP TABLE IF EXISTS `Users`;
 CREATE TABLE `Users`(
 	`player_id` int(100) NOT NULL AUTO_INCREMENT,
