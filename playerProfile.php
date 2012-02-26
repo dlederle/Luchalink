@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!doctype html>
 <html>
 <head>
@@ -6,6 +8,10 @@
      <link rel="stylesheet" href="etc/css/lucha.css">
 </head>
 
+<?php 
+	$name = $_SESSION['user_name'];
+?>
+
 <body>
      <div class="container-fluid">
           <div class="row" id="topbar">
@@ -13,7 +19,7 @@
                     <h2><a href="index.html">Lucha-Link</a></h2>
                </div>
                <div id="login">
-                    <form class="pull-right form-stacked" action="SOMELOGOUT.php" method = "GET">
+                    <form class="pull-right form-stacked" action="logout.php" method = "POST">
                          <h3>Pretend you're logged in :) </h3>
                          <a href="playerProfile.html?id=myid">My Profile</a>
                          <a href="dashboard.php">My Dashboard</a>
