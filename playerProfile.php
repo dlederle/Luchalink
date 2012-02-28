@@ -20,7 +20,6 @@
                </div>
                <div id="login">
                     <form class="pull-right form-stacked" action="logout.php" method = "POST">
-                         <h3>Pretend you're logged in :) </h3>
                          <a href="playerProfile.html?id=myid">My Profile</a>
                          <a href="dashboard.php">My Dashboard</a>
                          <input class="btn primary" type=submit name=submit value = "Log Out">
