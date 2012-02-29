@@ -47,6 +47,6 @@ CREATE TABLE `Players`(
 DROP TABLE IF EXISTS `Games`;
 CREATE TABLE `Games`(
 	`title` varchar(40) NOT NULL DEFAULT 'noname',
-	-- Ratings are K, K+, T, A
-	`rating` varchar(2),
+	-- Ratings are K, K+, T, A.  U = Unrated
+	`rating` varchar(2) NOT NULL DEFAULT 'U',
 	PRIMARY KEY(`title`)
