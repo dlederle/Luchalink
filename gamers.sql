@@ -50,3 +50,4 @@ CREATE TABLE `Games`(
 	-- Ratings are K, K+, T, A.  U = Unrated
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
 	PRIMARY KEY(`title`)
+);
