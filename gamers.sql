@@ -39,3 +39,14 @@ CREATE TABLE `Players`(
 	`win/loss_ratio` dec(5,2) DEFAULT 000.00,
 	PRIMARY KEY (`user_name`)
 );
+
+--
+-- Table structure for table `games`
+--
+
+DROP TABLE IF EXISTS `Games`;
+CREATE TABLE `Games`(
+	`title` varchar(40) NOT NULL DEFAULT 'noname',
+	-- Ratings are K, K+, T, A
+	`rating` varchar(2),
+	PRIMARY KEY(`title`)
