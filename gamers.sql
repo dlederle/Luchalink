@@ -51,3 +51,9 @@ CREATE TABLE `Games`(
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
 	PRIMARY KEY(`title`)
 );
+
+INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
+INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
+INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
+INSERT INTO Games (`title`,`rating`) VALUES ("Call of Duty 4:  Modern Warfare","M");
+INSERT INTO Games (`title`,`rating`) VALUES ("Taikyoku Shogi","U");
