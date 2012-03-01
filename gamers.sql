@@ -29,8 +29,8 @@ CREATE TABLE `Users`(
 -- Table structure for table `player`
 --
 
-DROP TABLE IF EXISTS `Players`;
-CREATE TABLE `Players`(
+DROP TABLE IF EXISTS `Avatars`;
+CREATE TABLE `Avatars`(
 	`user_name` varchar(20) DEFAULT 'n00b',
 	`wins` int DEFAULT 0,
 	`losses` int DEFAULT 0,
