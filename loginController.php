@@ -8,7 +8,7 @@ $pw = $_GET['password'];
 $query = "SELECT * FROM Users WHERE email = '$email' AND password = '$pw'";
 $result = mysqli_query($db, $query);
 
-echo"'$query'";
+//echo"'$query'";
 
 if ($row = mysqli_fetch_array($result)){
 

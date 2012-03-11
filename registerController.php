@@ -15,7 +15,7 @@
           //Else, create the user and log them in
           $query = "INSERT INTO Users (email, password) VALUES ('$email', '$pw')";
           $result = mysqli_query($db, $query);
-          echo($query);
+//          echo($query);
           header("Location: loginController.php?email=$email&password=$pw&submit=Log-In");
      //endif;
 ?>
