@@ -32,6 +32,7 @@ CREATE TABLE `Users`(
 DROP TABLE IF EXISTS `Avatars`;
 CREATE TABLE `Avatars`(
 	`user_name` varchar(20) DEFAULT 'n00b',
+	`rank` varchar(30) DEFAULT 'n00b',
 	`wins` int DEFAULT 0,
 	`losses` int DEFAULT 0,
 	`ties`  int DEFAULT 0,
@@ -49,6 +50,8 @@ CREATE TABLE `Games`(
 	`title` varchar(40) NOT NULL DEFAULT 'noname',
 	-- Ratings are K, K+, T, A.  U = Unrated
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
+	-- Rank is akin to popularity --
+	`rank` int DEFAULT 1500,
 	PRIMARY KEY(`title`)
 );
 
