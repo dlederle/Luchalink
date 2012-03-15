@@ -21,5 +21,5 @@
 	session_destroy();
 
 	//Redirect user to main page
-	header("Location:  index.html");
+	header("Location:  index.php");
 ?>

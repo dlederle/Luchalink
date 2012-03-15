@@ -9,11 +9,7 @@
 
 <body>
      <div class="container-fluid">
-          <div class="row" id="topbar">
-               <div class="span4" id="logo">
-                    <h2><a href="index.html">Lucha-Link</a></h2>
-               </div>
-          </div><!--topbar-->
+	<?php include 'topbar.php' ?>
           <div class="row-fluid">
 		<form action="deleteAccountController.php" method=POST>
 			<input type = "submit" name="GET PWNED" value=submit>
