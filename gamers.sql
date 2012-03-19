@@ -56,6 +56,11 @@ CREATE TABLE `Games`(
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
 	-- Rank is akin to popularity --
 	`rank` int DEFAULT 1500,
+	-- Path to the game's directory on the server
+	`path` varchar(30) NOT NULL DEFAULT 'games/',
+	-- The ID in the query string of the game's homepage
+	`titleID` varchar(10) NOT NULL,
+	`author` varchar(50) NOT NULL,
 	PRIMARY KEY(`title`)
 );
 
@@ -71,8 +76,9 @@ CREATE TABLE `Friends`(
 
 -- POPULATE THE FRIENDS TABLE HERE WITH MySQL QUERY
 
-INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
-INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
-INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
-INSERT INTO Games (`title`,`rating`) VALUES ("Call of Duty 4:  Modern Warfare","M");
-INSERT INTO Games (`title`,`rating`) VALUES ("Taikyoku Shogi","U");
+INSERT INTO Games (`title`, `rating`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "games/rps/", "rps", "dlederle");
+-- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
+-- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
+-- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
+-- INSERT INTO Games (`title`,`rating`) VALUES ("Call of Duty 4:  Modern Warfare","M");
+-- INSERT INTO Games (`title`,`rating`) VALUES ("Taikyoku Shogi","U");

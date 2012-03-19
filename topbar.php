@@ -1,7 +1,7 @@
 <?php
-        $name = $_SESSION['user_name'];
+if(isset($_SESSION['user_name'])) {
+	$name = $_SESSION['user_name'];
 	
-	if(isset($name)){
 ?>
 
  	  <div class="row" id="topbar">

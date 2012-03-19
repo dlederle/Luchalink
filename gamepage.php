@@ -1,20 +1,39 @@
+<?php
+	session_start();
+	include "db_connect.php";
+	$currGame = $_GET['gameID'];
+	if(isset($currGame)) {
+		$query = "SELECT title, rating, path, author FROM Games WHERE titleID = '$currGame'";
+		$result = mysqli_query($db, $query);
+		if($row = mysqli_fetch_array($result)) {
+			$gameTitle = $row['title'];
+			$rating = $row['rating'];
+			$path = $row['path'];
+			$author = $row['author'];
+		}
+	}
+	else {
+		header("Location: index.php");
+	}
+?>
 <!doctype html>
 <html>
 <head>
-     <title>SOME TEMP GAME | Lucha-Link</title>
+<title> <?php echo $gameTitle ?> | Lucha-Link</title>
      <link rel="stylesheet" href="etc/css/bootstrap.min.css">
      <link rel="stylesheet" href="etc/css/lucha.css">
+	<script src="etc/js/jquery-1.7.1.min.js"></script>
+	<script src="etc/js/jquery.colorbox-min.js"></script>
 </head>
 
 <body>
      <div class="container-fluid">
           <div class="row" id="topbar">
                <div class="span4" id="logo">
-                    <h2><a href="index.html">Lucha-Link</a></h2>
+                    <h2><a href="index.php">Lucha-Link</a></h2>
                </div>
                <div id="login">
-                    <form class="pull-right form-stacked" action="SOMELOGOUT.php" method = "GET">
-                         <h3>Pretend you're logged in :) </h3>
+                    <form class="pull-right form-stacked" action="logout.php" method = "GET">
                          <a href="playerProfile.html?id=myid">My Profile</a>
                          <a href="dashboard.html">My Dashboard</a>
                          <input class="btn primary" type=submit name=submit value = "Log Out">
@@ -23,8 +42,8 @@
           </div><!--topbar-->
           <div class="row-fluid">
                <div id="title-box">
-                    <h1>THIS IS A GAME TITLE</h1>
-                    <h3>Made by: <a href="authorProfile.html">Some Author</a></h3>
+			<h1><?php echo $gameTitle ?></h1>
+			<h3>Made by: <a href="authorProfile.html"><?php echo $author ?></a></h3>
                </div>
                <div class="span2" id="sidebar">
                     <h2>Highscores:</h2>
@@ -37,12 +56,14 @@
  
                <div class="span8" id="body">
                     <p>Blah blah, game description, this is a cool game, and amazing things happen and you should play etc</p>
-                    <h3><a href="im-not-sure">Launch *SOME GAME*</a></h3>
-                    And it should probably lightbox up over top of stuff, but i dunno how to do that, or if its even possible with html5 games...but il figure it out laters
+				<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
+<script>
+$(document).ready(function () {
+	$('#launchLink').colorbox({height: "85%", width: "85%"});
+});
+</script>
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
-
 </body>
 </html>
-
