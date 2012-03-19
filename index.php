@@ -10,7 +10,7 @@
      <div class="container-fluid">
           <div class="row" id="topbar">
                <div class="span4" id="logo">
-                    <h2><a href="index.html">Lucha-Link</a></h2>
+                    <h2><a href="index.php">Lucha-Link</a></h2>
                </div>
                <div id="login">
                <form class="pull-right form-stacked" action="loginController.php" method = "GET">
@@ -27,7 +27,7 @@
                     <h2>Games:</h2>
                     <ul>
                          <li>Oh woops, we don't have any games yet</li>
-                         <li><a href="gamepage.php">Temp Game Page</a></li>
+                         <li><a href="gamepage.php?gameID=rps">Rock, Paper, Scissors!</a></li>
                          <li>But if we did, they could scroll up here</li>
                     </ul>
                </div><!--sidebar-->
