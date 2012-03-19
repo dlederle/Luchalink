@@ -17,19 +17,12 @@ CREATE TABLE `Users`(
 	`player_id` int(100) NOT NULL AUTO_INCREMENT,
 	`first_name` varchar(20) DEFAULT 'n00b',
 	`last_name` varchar(30) DEFAULT 'n00b',
-	 PRIMARY KEY (`player_id`)
-);
-
-DROP TABLE IF EXISTS `User_info`;
-CREATE TABLE `Users_info`(
 	`player_id` int NOT NULL AUTO_INCREMENT,
 	`email` varchar(100) NOT NULL DEFAULT '',
 	`password` varchar(40) NOT NULL,
 	`display_name` varchar(20) DEFAULT 'n00b',
 	`profile_pic` VARCHAR(50),
-	CONSTRAINT users_player_id_fk
-	FOREIGN KEY (player_id)
-	REFERENCES Users (player_id)
+	 PRIMARY KEY (`player_id`)
 );
 
 --
