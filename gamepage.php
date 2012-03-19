@@ -30,10 +30,10 @@
      <div class="container-fluid">
           <div class="row" id="topbar">
                <div class="span4" id="logo">
-                    <h2><a href="index.html">Lucha-Link</a></h2>
+                    <h2><a href="index.php">Lucha-Link</a></h2>
                </div>
                <div id="login">
-                    <form class="pull-right form-stacked" action="SOMELOGOUT.php" method = "GET">
+                    <form class="pull-right form-stacked" action="logout.php" method = "GET">
                          <a href="playerProfile.html?id=myid">My Profile</a>
                          <a href="dashboard.html">My Dashboard</a>
                          <input class="btn primary" type=submit name=submit value = "Log Out">

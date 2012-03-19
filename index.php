@@ -26,9 +26,8 @@
                <div class="span2" id="sidebar">
                     <h2>Games:</h2>
                     <ul>
-                         <li>Oh woops, we don't have any games yet</li>
-                         <li><a href="gamepage.php">Temp Game Page</a></li>
-                         <li>But if we did, they could scroll up here</li>
+                         <li><a href="gamepage.php?gameID=rps">Rock, Paper, Scissors!</a></li>
+                         <li>To see the rest (there are no more) go <a href=listAllGames.php>here</a></li>
                     </ul>
                </div><!--sidebar-->
                <div class="span8" id="body">
