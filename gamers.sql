@@ -33,7 +33,7 @@ CREATE TABLE `Avatars`(
 	`game_id` int NOT NULL,
 	`avatar_id` int NOT NULL,
 	`user_name` varchar(20) DEFAULT 'n00b',
-	`rank` varchar(30) DEFAULT 'n00b',
+	`rank` int(11) DEFAULT '1500',
 	`wins` int DEFAULT 0,
 	`losses` int DEFAULT 0,
 	`ties`  int DEFAULT 0,
@@ -55,7 +55,7 @@ CREATE TABLE `Games`(
 	-- Ratings are K, K+, T, A.  U = Unrated
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
 	-- Rank is akin to popularity --
-	`rank` int DEFAULT 1500,
+	`rank` int DEFAULT 0,
 	-- Path to the game's directory on the server
 	`path` varchar(30) NOT NULL DEFAULT 'games/',
 	-- The ID in the query string of the game's homepage
