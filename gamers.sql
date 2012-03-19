@@ -74,7 +74,7 @@ CREATE TABLE `Games`(
 DROP TABLE IF EXISTS `Friends`;
 CREATE TABLE `Friends`(
 	`player_id` int NOT NULL,
-	`friend_id` int NOT NULL,
+	`friend_id` int NOT NULL
 );
 
 -- POPULATE THE FRIENDS TABLE HERE WITH MySQL QUERY
