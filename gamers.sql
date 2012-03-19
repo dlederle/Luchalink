@@ -17,7 +17,6 @@ CREATE TABLE `Users`(
 	`player_id` int(100) NOT NULL AUTO_INCREMENT,
 	`first_name` varchar(20) DEFAULT 'n00b',
 	`last_name` varchar(30) DEFAULT 'n00b',
-	`player_id` int NOT NULL AUTO_INCREMENT,
 	`email` varchar(100) NOT NULL DEFAULT '',
 	`password` varchar(40) NOT NULL,
 	`display_name` varchar(20) DEFAULT 'n00b',
