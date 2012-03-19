@@ -5,15 +5,13 @@ include "db_connect.php";
 $email = $_GET['email'];
 $pw = $_GET['password'];
 
-$query = "SELECT * FROM Users WHERE email = '$email' AND password = '$pw'";
+$query = "SELECT Users.player_id, Users_info.display_name FROM Users NATURAL JOIN Users_info WHERE Users_info.email = '$email' AND Users_info.password = '$pw'";
 $result = mysqli_query($db, $query);
-
-//echo"'$query'";
 
 if ($row = mysqli_fetch_array($result)){
 
 	$_SESSION['current_user'] = $email;
-	$_SESSION['user_name'] = $row['user_name'];
+	$_SESSION['user_name'] = $row['display_name'];
 	header("Location: playerProfile.php");
 	exit();
 }
