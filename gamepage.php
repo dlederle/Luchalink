@@ -1,8 +1,25 @@
+<?php
+	session_start();
+	include "db_connect.php";
+	$currGame = $_GET['gameID'];
+	if(isset($currGame)) {
+		$query = "SELECT title, rating, path, author FROM Games WHERE titleID = '$currGame'";
+		$result = mysqli_query($db, $query);
+		if($row = mysqli_fetch_array($result)) {
+			$gameTitle = $row['title'];
+			$rating = $row['rating'];
+			$path = $row['path'];
+			$author = $row['author'];
+		}
+	}
+	else {
+		header("Location: index.php");
+	}
+?>
 <!doctype html>
 <html>
 <head>
-	<title>Rock, Paper, Shotgun | Lucha-Link</title>
-	<!--Pull the title from Db-->
+<title> <?php echo $gameTitle ?> | Lucha-Link</title>
      <link rel="stylesheet" href="etc/css/bootstrap.min.css">
      <link rel="stylesheet" href="etc/css/lucha.css">
 	<script src="etc/js/jquery-1.7.1.min.js"></script>
@@ -25,8 +42,8 @@
           </div><!--topbar-->
           <div class="row-fluid">
                <div id="title-box">
-                    <h1>Rock, Paper, Shotgun</h1>
-                    <h3>Made by: <a href="authorProfile.html">Dlederle</a></h3>
+			<h1><?php echo $gameTitle ?></h1>
+			<h3>Made by: <a href="authorProfile.html"><?php echo $author ?></a></h3>
                </div>
                <div class="span2" id="sidebar">
                     <h2>Highscores:</h2>
@@ -39,7 +56,7 @@
  
                <div class="span8" id="body">
                     <p>Blah blah, game description, this is a cool game, and amazing things happen and you should play etc</p>
-                    <h3><a href="games/rps/rps.html" id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
+				<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
 <script>
 $(document).ready(function () {
 	$('#launchLink').colorbox({height: "85%", width: "85%"});
