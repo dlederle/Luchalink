@@ -149,7 +149,7 @@ sqlSyntax;
 			fwrite($db_connect, "\$db = new mysqli('$hostname', '$username', '$password', '$database');" . "\n");
 			fwrite($db_connect, 'if($db->connect_errno) {' . "\n");
 			fwrite($db_connect, 'echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;' . "\n");
-			fwrite($db_connect, "}" . "\n");
+			fwrite($db_connect, "} ?>" . "\n");
 			fclose($db_connect);
 		?>
 	</BODY>

@@ -31,8 +31,8 @@
 			<?php echo $pic ?><br/>			
 			<form action="updateProfileController.php" method=POST>
 				Update Profile Picture: <input type="file" name="profPic"><br/>
-				Change Display Name: <input type="text" name="displayName"><br/>
-				Update E-mail: <input type="text" name="email"><br/>
+				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
+				Update E-mail: <input type="text" name="email" value=<?php echo $email ?>><br/>
 				<input type="submit" name="submit" value=update><br/>
 			</form>
 

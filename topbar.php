@@ -1,6 +1,5 @@
 <?php
-
-if(isset($_SESSION['user_name']) && isset($_SESSION['pid']) {
+if(isset($_SESSION['user_name']) && isset($_SESSION['pid'])) {
 	$name = $_SESSION['user_name'];
 	$id = $_SESSION['pid'];
 	
