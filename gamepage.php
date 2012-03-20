@@ -28,19 +28,8 @@
 
 <body>
      <div class="container-fluid">
-          <div class="row" id="topbar">
-               <div class="span4" id="logo">
-                    <h2><a href="index.php">Lucha-Link</a></h2>
-               </div>
-               <div id="login">
-                    <form class="pull-right form-stacked" action="logout.php" method = "GET">
-                         <a href="playerProfile.html?id=myid">My Profile</a>
-                         <a href="dashboard.html">My Dashboard</a>
-                         <input class="btn primary" type=submit name=submit value = "Log Out">
-                    </form>
-               </div><!--login-->
-          </div><!--topbar-->
-          <div class="row-fluid">
+	<?php include("topbar.php");?>
+         <div class="row-fluid">
                <div id="title-box">
 			<h1><?php echo $gameTitle ?></h1>
 			<h3>Made by: <a href="authorProfile.html"><?php echo $author ?></a></h3>
