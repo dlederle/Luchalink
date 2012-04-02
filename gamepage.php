@@ -3,13 +3,14 @@
 	include "db_connect.php";
 	$currGame = $_GET['gameID'];
 	if(isset($currGame)) {
-		$query = "SELECT title, rating, path, author FROM Games WHERE titleID = '$currGame'";
+		$query = "SELECT title, rating, path, author, description FROM Games WHERE titleID = '$currGame'";
 		$result = mysqli_query($db, $query);
 		if($row = mysqli_fetch_array($result)) {
 			$gameTitle = $row['title'];
 			$rating = $row['rating'];
 			$path = $row['path'];
 			$author = $row['author'];
+			$desc = $row['description'];
 		}
 	}
 	else {
@@ -28,19 +29,8 @@
 
 <body>
      <div class="container-fluid">
-          <div class="row" id="topbar">
-               <div class="span4" id="logo">
-                    <h2><a href="index.html">Lucha-Link</a></h2>
-               </div>
-               <div id="login">
-                    <form class="pull-right form-stacked" action="SOMELOGOUT.php" method = "GET">
-                         <a href="playerProfile.html?id=myid">My Profile</a>
-                         <a href="dashboard.html">My Dashboard</a>
-                         <input class="btn primary" type=submit name=submit value = "Log Out">
-                    </form>
-               </div><!--login-->
-          </div><!--topbar-->
-          <div class="row-fluid">
+	<?php include("topbar.php");?>
+         <div class="row-fluid">
                <div id="title-box">
 			<h1><?php echo $gameTitle ?></h1>
 			<h3>Made by: <a href="authorProfile.html"><?php echo $author ?></a></h3>
@@ -55,8 +45,11 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-                    <p>Blah blah, game description, this is a cool game, and amazing things happen and you should play etc</p>
-				<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
+				<p><?php echo "$desc"?></p>
+<?php
+	if($id)
+?>
+		<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
 <script>
 $(document).ready(function () {
 	$('#launchLink').colorbox({height: "85%", width: "85%"});

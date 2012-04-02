@@ -1,7 +1,8 @@
 <?php
-        $name = $_SESSION['user_name'];
+if(isset($_SESSION['user_name']) && isset($_SESSION['pid'])) {
+	$name = $_SESSION['user_name'];
+	$id = $_SESSION['pid'];
 	
-	if(isset($name)){
 ?>
 
  	  <div class="row" id="topbar">

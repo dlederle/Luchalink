@@ -20,17 +20,18 @@ CREATE TABLE `Users`(
 	`email` varchar(100) NOT NULL DEFAULT '',
 	`password` varchar(40) NOT NULL,
 	`display_name` varchar(20) DEFAULT 'n00b',
-	`profile_pic` VARCHAR(50),
+	`profile_pic` VARCHAR(50) DEFAULT '<h1>HERE BE THEIR PROFILE PIC </h1>',
 	 PRIMARY KEY (`player_id`)
 );
 
+CREATE INDEX IDX_USERS_DISPLAY_NAME ON Users(display_name);
 --
 -- Table structure for table `Avatars`
 --
 
 DROP TABLE IF EXISTS `Avatars`;
 CREATE TABLE `Avatars`(
-	`game_id` int NOT NULL,
+	`game_id` varchar(10) NOT NULL,
 	`avatar_id` int NOT NULL,
 	`user_name` varchar(20) DEFAULT 'n00b',
 	`rank` int(11) DEFAULT '1500',
@@ -38,13 +39,13 @@ CREATE TABLE `Avatars`(
 	`losses` int DEFAULT 0,
 	`ties`  int DEFAULT 0,
 	-- (5,2) = aaa.bb format
-	`win/loss_ratio` dec(5,2) DEFAULT 000.00,
 	PRIMARY KEY (avatar_id),
 	CONSTRAINT users_avatar_id_fk
 	FOREIGN KEY (avatar_id)
 	REFERENCES Users (player_id)
 );
 
+CREATE INDEX IDX_AVATAR_RANK ON Avatars(rank);
 --
 -- Table structure for table `Games`
 --
@@ -54,6 +55,7 @@ CREATE TABLE `Games`(
 	`title` varchar(40) NOT NULL DEFAULT 'noname',
 	-- Ratings are K, K+, T, A.  U = Unrated
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
+	`description` blob,
 	-- Rank is akin to popularity --
 	`rank` int DEFAULT 0,
 	-- Path to the game's directory on the server
@@ -61,9 +63,10 @@ CREATE TABLE `Games`(
 	-- The ID in the query string of the game's homepage
 	`titleID` varchar(10) NOT NULL,
 	`author` varchar(50) NOT NULL,
-	PRIMARY KEY(`title`)
+	PRIMARY KEY(`titleID`)
 );
 
+CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
 --
 -- Table structure for table `Friends`
 --
@@ -76,7 +79,11 @@ CREATE TABLE `Friends`(
 
 -- POPULATE THE FRIENDS TABLE HERE WITH MySQL QUERY
 
-INSERT INTO Games (`title`, `rating`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "games/rps/", "rps", "dlederle");
+INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "This is a Rock, Paper, Scissor's Clone. Shotgun equals Scissors.", "games/rps/", "rps", "dlederle");
+
+INSERT INTO Users (first_name, last_name, email, password) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup');
+
+INSERT INTO Avatars (game_id, avatar_id) VALUES ('rps', 1);
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
