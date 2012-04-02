@@ -48,14 +48,15 @@
 				$query = "SELECT * FROM Avatars INNER JOIN Games ON Avatars.game_id = '$currGame';";
 					$result = mysqli_query($db, $query)
 						or die("error querying database");
-					echo "<br>Name:		Wins/Losses</br>";
+					echo "<br>Name | Wins/Losses</br>";
+					#Highscore table
 					while($row = mysqli_fetch_array($result)) {
 						$avatar= $row['user_name'];
 						$wins = $row['wins'];
 						$losses = $row['losses'];
 						$wLRatio = $wins/$losses;
 						#echo "<li><a href=gamepage.php?gameID=$avatar>$wLRatio</a></li>"; 
-						echo "<br>$avatar		$wins/"."$losses</br>";
+						echo "<br>$avatar | $wins/"."$losses</br>";
 					}
 			?>
                     </ul>
