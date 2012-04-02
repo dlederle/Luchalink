@@ -66,7 +66,7 @@ CREATE TABLE `Games`(
 	PRIMARY KEY(`titleID`)
 );
 
-CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
+CREATE INDEX IDX_GAMES_RANK ON Games(rank);
 --
 -- Table structure for table `Friends`
 --
