@@ -24,6 +24,7 @@ CREATE TABLE `Users`(
 	 PRIMARY KEY (`player_id`)
 );
 
+CREATE INDEX IDX_USERS_DISPLAY_NAME ON Users(display_name);
 --
 -- Table structure for table `Avatars`
 --
@@ -45,6 +46,7 @@ CREATE TABLE `Avatars`(
 	REFERENCES Users (player_id)
 );
 
+CREATE INDEX IDX_AVATAR_RANK ON Avatars(rank);
 --
 -- Table structure for table `Games`
 --
@@ -65,6 +67,7 @@ CREATE TABLE `Games`(
 	PRIMARY KEY(`title`)
 );
 
+CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
 --
 -- Table structure for table `Friends`
 --
