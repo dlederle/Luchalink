@@ -24,6 +24,7 @@ CREATE TABLE `Users`(
 	 PRIMARY KEY (`player_id`)
 );
 
+CREATE INDEX IDX_USERS_DISPLAY_NAME ON Users(display_name);
 --
 -- Table structure for table `Avatars`
 --
@@ -38,13 +39,13 @@ CREATE TABLE `Avatars`(
 	`losses` int DEFAULT 0,
 	`ties`  int DEFAULT 0,
 	-- (5,2) = aaa.bb format
-	`win/loss_ratio` dec(5,2) DEFAULT 000.00,
 	PRIMARY KEY (avatar_id),
 	CONSTRAINT users_avatar_id_fk
 	FOREIGN KEY (avatar_id)
 	REFERENCES Users (player_id)
 );
 
+CREATE INDEX IDX_AVATAR_RANK ON Avatars(rank);
 --
 -- Table structure for table `Games`
 --
@@ -62,9 +63,10 @@ CREATE TABLE `Games`(
 	-- The ID in the query string of the game's homepage
 	`titleID` varchar(10) NOT NULL,
 	`author` varchar(50) NOT NULL,
-	PRIMARY KEY(`title`)
+	PRIMARY KEY(`titleID`)
 );
 
+CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
 --
 -- Table structure for table `Friends`
 --

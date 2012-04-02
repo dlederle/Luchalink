@@ -28,7 +28,7 @@
                     <h1><?php echo $name ?></h1>
                 </div>
 		<div class="span3" id="sidebar">
-			<?php echo $pic ?><br/>			
+			<img src=<?php echo pic ?>/><br/>			
 			<form action="updateProfileController.php" method=POST>
 				Update Profile Picture: <input type="file" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
