@@ -39,7 +39,6 @@ CREATE TABLE `Avatars`(
 	`losses` int DEFAULT 0,
 	`ties`  int DEFAULT 0,
 	-- (5,2) = aaa.bb format
-	`win/loss_ratio` dec(5,2) DEFAULT 000.00,
 	PRIMARY KEY (avatar_id),
 	CONSTRAINT users_avatar_id_fk
 	FOREIGN KEY (avatar_id)
@@ -64,7 +63,7 @@ CREATE TABLE `Games`(
 	-- The ID in the query string of the game's homepage
 	`titleID` varchar(10) NOT NULL,
 	`author` varchar(50) NOT NULL,
-	PRIMARY KEY(`title`)
+	PRIMARY KEY(`titleID`)
 );
 
 CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
