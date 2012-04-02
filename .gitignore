@@ -9,3 +9,7 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# The db_connect file #
+#######################
+db_connect.php
