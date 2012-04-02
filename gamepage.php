@@ -3,13 +3,14 @@
 	include "db_connect.php";
 	$currGame = $_GET['gameID'];
 	if(isset($currGame)) {
-		$query = "SELECT title, rating, path, author FROM Games WHERE titleID = '$currGame'";
+		$query = "SELECT title, rating, path, author, description FROM Games WHERE titleID = '$currGame'";
 		$result = mysqli_query($db, $query);
 		if($row = mysqli_fetch_array($result)) {
 			$gameTitle = $row['title'];
 			$rating = $row['rating'];
 			$path = $row['path'];
 			$author = $row['author'];
+			$desc = $row['description'];
 		}
 	}
 	else {
@@ -44,7 +45,7 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-                    <p>Blah blah, game description, this is a cool game, and amazing things happen and you should play etc</p>
+			<p><?php echo "$desc"?></p>
 				<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
 <script>
 $(document).ready(function () {

@@ -17,7 +17,7 @@
                     <h2>Games:</h2>
                     <ul>
 				<?php
-					$query = "SELECT * FROM Games LIMIT 0,10 ORDER BY rating";
+					$query = "SELECT * FROM Games ORDER BY rank DESC LIMIT 0,10";
 					$result = mysqli_query($db, $query)
 						or die("error querying database");
 					while($row = mysqli_fetch_array($result)) {

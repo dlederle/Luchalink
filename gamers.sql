@@ -54,6 +54,7 @@ CREATE TABLE `Games`(
 	`title` varchar(40) NOT NULL DEFAULT 'noname',
 	-- Ratings are K, K+, T, A.  U = Unrated
 	`rating` varchar(2) NOT NULL DEFAULT 'U',
+	`description` blob,
 	-- Rank is akin to popularity --
 	`rank` int DEFAULT 1500,
 	-- Path to the game's directory on the server
@@ -76,7 +77,7 @@ CREATE TABLE `Friends`(
 
 -- POPULATE THE FRIENDS TABLE HERE WITH MySQL QUERY
 
-INSERT INTO Games (`title`, `rating`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "games/rps/", "rps", "dlederle");
+INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "This is a Rock, Paper, Scissor's Clone. Shotgun equals Scissors.", "games/rps/", "rps", "dlederle");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
