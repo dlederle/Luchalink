@@ -45,8 +45,11 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-			<p><?php echo "$desc"?></p>
-				<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
+				<p><?php echo "$desc"?></p>
+<?php
+	if($id)
+?>
+		<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
 <script>
 $(document).ready(function () {
 	$('#launchLink').colorbox({height: "85%", width: "85%"});

@@ -30,7 +30,7 @@ CREATE TABLE `Users`(
 
 DROP TABLE IF EXISTS `Avatars`;
 CREATE TABLE `Avatars`(
-	`game_id` int NOT NULL,
+	`game_id` varchar(10) NOT NULL,
 	`avatar_id` int NOT NULL,
 	`user_name` varchar(20) DEFAULT 'n00b',
 	`rank` varchar(30) DEFAULT 'n00b',
@@ -78,6 +78,10 @@ CREATE TABLE `Friends`(
 -- POPULATE THE FRIENDS TABLE HERE WITH MySQL QUERY
 
 INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "This is a Rock, Paper, Scissor's Clone. Shotgun equals Scissors.", "games/rps/", "rps", "dlederle");
+
+INSERT INTO Users (first_name, last_name, email, password) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup');
+
+INSERT INTO Avatars (game_id, avatar_id) VALUES ('rps', 1);
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
