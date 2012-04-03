@@ -17,7 +17,7 @@
 	<?php include 'topbar.php' ?>
           <div class="row-fluid">
                <div class="span2" id="sidebar">
-                    <img src="luchamask.png"/>
+                    <img src="luchaMask.png"/>
                     <h2><?php echo $name ?></h2>
                     Info:
                     <ul>
