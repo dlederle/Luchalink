@@ -4,9 +4,9 @@
 
 	$profile = $_GET['id'];
 	if(isset($profile)) {
-		$query = "SELECT display_name, first_name, last_name, description FROM Users WHERE player_id = $profile";
-		$result = mysqli_query($db, $query);
-		if($row = mysql_fetch_array($result)) {
+		$infoquery = "SELECT display_name, first_name, last_name, description FROM Users WHERE player_id = '$profile'";
+		$inforesult = mysqli_query($db, $infoquery);
+		if($row = mysqli_fetch_array($inforesult)) {
 			$dispname = $row['display_name'];
 			$first = $row['first_name'];
 			$last = $row['last_name'];
@@ -30,26 +30,19 @@
 	<?php include 'topbar.php' ?>
           <div class="row-fluid">
                <div class="span2" id="sidebar">
-                    <img src="luchamask.png"/>
+                    <img src="luchaMask.png"/>
                     <h2><?php echo $dispname ?></h2>
                     Info:
                     <ul>
-                         <li>Some profile info</li>
-                         <li>Some other profile info</li>
+					<li>Name: <?php echo $first." ".$last ?></li>
                     </ul>
-                    Achievements:
-                    <ul>
-                         <li>Ranked 500000/500000 in 2 player tetris</li>
-                         <li>Really bad at some other games</li>
-                    <ul>
-
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-				
                	<div id="title-box">
                     	<h1><?php echo $dispname ?></h1>
                	</div>
+					<p><?php echo $description ?></p>
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
