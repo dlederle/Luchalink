@@ -15,10 +15,16 @@ if(isset($_POST['email'])){
 $email = $_POST['email'];
 $query1 = "UPDATE Users SET email = '$email' WHERE player_id = $pid";
 }
-if(isset($_POST['profPic'])){
-$pic = $_POST['profPic'];
-$query2 = "UPDATE Users SET profile_pic = '$pic' WHERE player_id = $pid";
+
+$pic = $_FILES['profPic']['name'];
+if($pic){
+	$imgFile = fopen("images/".$pid, "w");
+	fwrite($imgFile, $pic);
+	fclose($imgFile);
+
+	$query2 = "UPDATE Users SET profile_pic = '$pic' WHERE player_id = $pid";
 }
+
 if(isset($_POST['displayName'])){
 $d_name = $_POST['displayName'];
 $query3 = "UPDATE Users SET display_name = '$d_name' WHERE player_id = $pid";

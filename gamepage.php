@@ -38,9 +38,27 @@
                <div class="span2" id="sidebar">
                     <h2>Highscores:</h2>
                     <ul>
-                         <li><a href="playerProfile.html?id=someid">Dylan Rox</a></li>
+			<!--
+			 <li><a href="playerProfile.html?id=someid">Dylan Rox</a></li>
                          <li><a href="playerProfile.html?id=someotherid">Kevin doesn't</a></li>
-                         <li>Nobody else plays the dumb game</li>
+			 <li>Nobody else plays the dumb game</li>
+			-->
+			<?php
+				#Display high scores for the game for each user that plays the game
+				$query = "SELECT * FROM Avatars INNER JOIN Games ON Avatars.game_id = '$currGame';";
+					$result = mysqli_query($db, $query)
+						or die("error querying database");
+					echo "<br>Name | Wins/Losses</br>";
+					#Highscore table
+					while($row = mysqli_fetch_array($result)) {
+						$avatar= $row['user_name'];
+						$wins = $row['wins'];
+						$losses = $row['losses'];
+						$wLRatio = $wins/$losses;
+						#echo "<li><a href=gamepage.php?gameID=$avatar>$wLRatio</a></li>"; 
+						echo "<br>$avatar | $wins/"."$losses</br>";
+					}
+			?>
                     </ul>
                </div><!--sidebar-->
  
