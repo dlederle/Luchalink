@@ -16,11 +16,8 @@
      <div class="container-fluid">
 	<?php include 'topbar.php' ?>
           <div class="row-fluid">
-               <div id="title-box">
-                    <h1><?php echo $name ?></h1>
-               </div>
                <div class="span2" id="sidebar">
-                    <h1>HERE BE THEIR PROFILE PIC</h1>
+                    <img src="luchamask.png"/>
                     <h2><?php echo $name ?></h2>
                     Info:
                     <ul>
@@ -36,6 +33,9 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
+               <div id="title-box">
+                    <h1><?php echo $name ?></h1>
+               </div>
                     I'm  not entirely sure what goes here.
                     Probably all the games they play, most recent matches, short self-description?
                </div><!--body-->
