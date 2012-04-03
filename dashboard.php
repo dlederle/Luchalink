@@ -48,7 +48,24 @@
 		<div class="span8" id="body">
 			E-mail : <?php echo $email ?><br/>			
                </div><!--body-->
+		<div class="span8" id="body">
+		<table align="center">
+		<tr><td>User Name</td>
+		<td>Email</td></tr><tr>
+		<?php
+			$query = "SELECT * FROM Users ORDER BY display_name";
+			$result = mysqli_query($db,$query);	
+			while($row = mysqli_fetch_array($result)){
+				$displayname = $row['display_name'];
+				$email = $row['email'];
+				$id = $row['player_id'];
 
+				echo "<td><a href = playerProfile.php?id=$id>$displayname</a></td><td>$email</td></tr>\n";
+			}
+			echo "</table></div><!--body-->";
+				
+			
+		?>
           </div><!--row-fluid-->
      </div><!--container-fluid-->
 

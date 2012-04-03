@@ -31,8 +31,38 @@
                     <ul>
                          <li>Ranked 500000/500000 in 2 player tetris</li>
                          <li>Really bad at some other games</li>
-                    <ul>
+                    </ul>
+		    <?php
+			
+			if ($_SESSION['pid'] != $_GET['id']){
+   				$query1 = "SELECT * FROM Friends WHERE player_id = '$_SESSION['pid']' AND friend_id = '$_GET['id']'";
+				$query2 = "SELECT * FROM Friends WHERE player_id = '$_GET['id']' AND friend_id = '$_SESSION['pid']'";
 
+				$resultCheck = mysqli_query($db, $query1);
+				$resultCheck2 = mysqli_query($db, $query2); 
+	                if(!isset($resultCheck)){
+	                        if (!isset($resultCheck2)){
+	                                echo "<form action= \"friendController.php \" method = POST>\n
+							<input type = \"hidden\" value = $_GET['id'] name= \"friend_id\">\n
+							<input type = \"submit\" value = \"ADD FRIEND!\" name = submit>\n
+						</form>\n
+						";
+	                        }   
+	                        else{
+	                                echo("Your already Friends with this guy!");
+	                        }   
+	                }   
+	                else{
+	                        echo("Your already friends with this guy! Part 2");
+    
+	                }   
+
+
+			}
+	
+
+
+		    ?>
                </div><!--sidebar-->
  
                <div class="span8" id="body">
