@@ -11,7 +11,7 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['pid'])) {
                </div>
                <div id="login">
                     <form class="pull-right form-stacked" action="logout.php" method = "POST">
-                         <a href="playerProfile.php?id=myid">My Profile</a>
+				<a href="playerProfile.php?id=<?php echo $id ?>">My Profile</a>
                          <a href="dashboard.php">My Dashboard</a>
                          <input class="btn primary" type=submit name=submit value = "Log Out">
                     </form>

@@ -75,6 +75,7 @@
 			echo "<h2>Welcome back, $userName</h2>"
 ?>
 		<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
+
 <script>
 $(document).ready(function () {
 	$('#launchLink').colorbox({height: "85%", width: "85%"});

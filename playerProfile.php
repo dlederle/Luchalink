@@ -36,8 +36,7 @@
                </div><!--sidebar-->
  
                <div class="span8" id="body">
-                    I'm  not entirely sure what goes here.
-                    Probably all the games they play, most recent matches, short self-description?
+				
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
