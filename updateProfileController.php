@@ -17,10 +17,10 @@ $query1 = "UPDATE Users SET email = '$email' WHERE player_id = $pid";
 }
 
 $pic = $_FILES['profPic']['name'];
-if($pic){
-	$imgFile = fopen("images/".$pid, "w");
-	fwrite($imgFile, $pic);
-	fclose($imgFile);
+//if($pic){
+//	$imgFile = fopen("images/".$pid, "w");
+//	fwrite($imgFile, $pic);
+//	fclose($imgFile);
 
 	$query2 = "UPDATE Users SET profile_pic = '$pic' WHERE player_id = $pid";
 }
