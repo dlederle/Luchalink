@@ -31,10 +31,6 @@
      <div class="container-fluid">
 	<?php include("topbar.php");?>
          <div class="row-fluid">
-               <div id="title-box">
-			<h1><?php echo $gameTitle ?></h1>
-			<h3>Made by: <?php echo $author ?></h3>
-               </div>
                <div class="span2" id="sidebar">
                     <h2>Highscores:</h2>
                     <ul>
@@ -56,17 +52,21 @@
 						$losses = $row['losses'];
 						//$wLRatio = $wins/$losses;
 						#echo "<li><a href=gamepage.php?gameID=$avatar>$wLRatio</a></li>"; 
-						echo "$avatar | $wins/"."$losses";
+						echo "$avatar | $wins/"."$losses <br />";
 					}
 			?>
                     </ul>
                </div><!--sidebar-->
  
-               <div class="span8" id="body">
-				<p><?php echo "$desc"?></p>
+			<div class="span8" id="body">
+				<div id="title-box">
+					<h1><?php echo $gameTitle ?></h1>
+					<h3>Made by: <?php echo $author ?></h3>
+					<p><?php echo "$desc"?></p>
+				</div>
 <?php
-	if(isset($id)) {
-		//Check if current player has joined the game
+					if(isset($id)) {
+						//Check if current player has joined the game
 		$query1 = "SELECT * FROM Avatars WHERE Avatars.game_id = '$currGame' AND Avatars.owner_id = $id";
 		$result1 = mysqli_query($db, $query1);
 		//if($result1) {
