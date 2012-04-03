@@ -32,7 +32,8 @@ CREATE INDEX IDX_USERS_DISPLAY_NAME ON Users(display_name);
 DROP TABLE IF EXISTS `Avatars`;
 CREATE TABLE `Avatars`(
 	`game_id` varchar(10) NOT NULL,
-	`avatar_id` int NOT NULL,
+	`avatar_id` int NOT NULL AUTO_INCREMENT,
+	`owner_id` int NOT NULL,
 	`user_name` varchar(20) DEFAULT 'n00b',
 	`rank` varchar(30) DEFAULT 'n00b',
 	`wins` int DEFAULT 0,
@@ -41,7 +42,7 @@ CREATE TABLE `Avatars`(
 	-- (5,2) = aaa.bb format
 	PRIMARY KEY (avatar_id),
 	CONSTRAINT users_avatar_id_fk
-	FOREIGN KEY (avatar_id)
+	FOREIGN KEY (owner_id)
 	REFERENCES Users (player_id)
 );
 
@@ -66,7 +67,7 @@ CREATE TABLE `Games`(
 	PRIMARY KEY(`titleID`)
 );
 
-CREATE INDEX IDX_GAMES_RANK ON Gamess(rank);
+CREATE INDEX IDX_GAMES_RANK ON Games(rank);
 --
 -- Table structure for table `Friends`
 --
@@ -83,7 +84,7 @@ INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`
 
 INSERT INTO Users (first_name, last_name, email, password) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup');
 
-INSERT INTO Avatars (game_id, avatar_id) VALUES ('rps', 1);
+INSERT INTO Avatars (game_id, owner_id, user_name) VALUES ('rps', 1, 'Default');
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
