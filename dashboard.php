@@ -21,16 +21,19 @@
 	if ($row = mysqli_fetch_array($result)){
 		$email = $row['email'];
 		$pic = $row['profile_pic'];
-	}	
+	}
 
+	$imgFile = fopen("images/".$id, "r");	
+	$profPic = fgets($imgFile);
+	fclose($imgFile);
 ?>
 		<div id="title-box">
                     <h1><?php echo $name ?></h1>
                 </div>
 		<div class="span3" id="sidebar">
-			<img src=<?php echo pic ?>/><br/>			
+			<img src=<?php echo $profPic ?>/><br/>			
 			<form action="updateProfileController.php" method=POST>
-				Update Profile Picture: <input type="file" name="profPic"><br/>
+				Update Profile Picture: <input type="file" enctype="multipart/form-data" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
 				Update E-mail: <input type="text" name="email" value=<?php echo $email ?>><br/>
 				<input type="submit" name="submit" value=update><br/>

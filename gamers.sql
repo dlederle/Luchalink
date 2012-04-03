@@ -20,7 +20,8 @@ CREATE TABLE `Users`(
 	`email` varchar(100) NOT NULL DEFAULT '',
 	`password` varchar(40) NOT NULL,
 	`display_name` varchar(20) DEFAULT 'n00b',
-	`profile_pic` VARCHAR(50) DEFAULT '<h1>HERE BE THEIR PROFILE PIC </h1>',
+	-- `profile_pic` VARCHAR(50) DEFAULT '<h1>HERE BE THEIR PROFILE PIC </h1>',
+	`profile_pic` blob,
 	 PRIMARY KEY (`player_id`)
 );
 
