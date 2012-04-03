@@ -66,9 +66,12 @@ CREATE TABLE `Users`(
 	`email` varchar(100) NOT NULL DEFAULT '',
 	`password` varchar(40) NOT NULL,
 	`display_name` varchar(20) DEFAULT 'n00b',
+	`description` blob,
 	`profile_pic` VARCHAR(50) DEFAULT '<h1>HERE BE THEIR PROFILE PIC </h1>',
 	 PRIMARY KEY (`player_id`)
 );
+
+CREATE INDEX IDX_USERS_DISPLAY_NAME ON Users(display_name);
 
 --
 -- Table structure for table `Avatars`
@@ -77,7 +80,8 @@ CREATE TABLE `Users`(
 DROP TABLE IF EXISTS `Avatars`;
 CREATE TABLE `Avatars`(
 	`game_id` int NOT NULL,
-	`avatar_id` int NOT NULL,
+	`avatar_id` int NOT NULL AUTO_INCREMENT,
+        `owner_id` int NOT NULL,
 	`user_name` varchar(20) DEFAULT 'n00b',
 	`rank` varchar(30) DEFAULT 'n00b',
 	`wins` int DEFAULT 0,
@@ -87,28 +91,28 @@ CREATE TABLE `Avatars`(
 	`win/loss_ratio` dec(5,2) DEFAULT 000.00,
 	PRIMARY KEY (avatar_id),
 	CONSTRAINT users_avatar_id_fk
-	FOREIGN KEY (avatar_id)
+	FOREIGN KEY (owner_id)
 	REFERENCES Users (player_id)
 );
+
+CREATE INDEX IDX_AVATAR_RANK ON Avatars(rank);
 
 --
 -- Table structure for table `Games`
 --
 
 DROP TABLE IF EXISTS `Games`;
-CREATE TABLE `Games`(
-	`title` varchar(40) NOT NULL DEFAULT 'noname',
-	-- Ratings are K, K+, T, A.  U = Unrated
-	`rating` varchar(2) NOT NULL DEFAULT 'U',
-	-- Rank is akin to popularity --
-	`rank` int DEFAULT 1500,
-	-- Path to the game's directory on the server
-	`path` varchar(30) NOT NULL DEFAULT 'games/',
-	-- The ID in the query string of the game's homepage
-	`titleID` varchar(10) NOT NULL,
-	`author` varchar(50) NOT NULL,
-	PRIMARY KEY(`title`)
+CREATE TABLE `Games`(`title` varchar(40) NOT NULL DEFAULT 'noname',
+        `rating` varchar(2) NOT NULL DEFAULT 'U',
+        `description` blob,
+        `rank` int DEFAULT 1500,
+        `path` varchar(30) NOT NULL DEFAULT 'games/',
+        `titleID` varchar(10) NOT NULL,
+        `author` varchar(50) NOT NULL,
+        PRIMARY KEY(`titleID`)
 );
+
+CREATE INDEX IDX_GAMES_RANK ON Games(rank);
 
 --
 -- Table structure for table `Friends`
