@@ -22,6 +22,7 @@ CREATE TABLE `Users`(
 	`display_name` varchar(20) DEFAULT 'n00b',
 	-- `profile_pic` VARCHAR(50) DEFAULT '<h1>HERE BE THEIR PROFILE PIC </h1>',
 	`profile_pic` blob,
+	`description` blob,
 	 PRIMARY KEY (`player_id`)
 );
 
@@ -83,7 +84,7 @@ CREATE TABLE `Friends`(
 
 INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`) VALUES ("Rock, Paper, Shotgun", "E", "This is a Rock, Paper, Scissor's Clone. Shotgun equals Scissors.", "games/rps/", "rps", "dlederle");
 
-INSERT INTO Users (first_name, last_name, email, password) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup');
+INSERT INTO Users (first_name, last_name, email, password, description) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup', 'The stupid test account');
 
 INSERT INTO Avatars (game_id, owner_id, user_name) VALUES ('rps', 1, 'WinRAWR');
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
