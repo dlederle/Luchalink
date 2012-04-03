@@ -42,7 +42,24 @@
                	<div id="title-box">
                     	<h1><?php echo $dispname ?></h1>
                	</div>
-					<p><?php echo $description ?></p>
+				<p><?php echo $description ?></p>
+				<hr>
+				<h2><?php echo "$dispname's Games:"?></h2>
+<?php
+	$gamesQuery = "SELECT game_id, title, Avatars.rank FROM Games INNER JOIN Avatars ON Avatars.game_id = Games.titleID WHERE Avatars.owner_id = $profile";
+	$gamesResult = mysqli_query($db, $gamesQuery)
+		or die("error querying database");
+	echo "<table class=table>\n<thead>\n<tr><th>Game Title</th><th>$dispname's Ranking</th></tr>\n</thead>\n<tbody>\n";
+	while($row = mysqli_fetch_array($gamesResult)) {
+		$game = $row['game_id'];
+		$title = $row['title'];
+		$rank = $row['rank'];
+		echo "<tr><td><a href=gamepage.php?gameID=$game>$title</a></td><td>$rank</td></tr>\n";
+	}
+	echo "</tbody>\n</table\n";
+?>
+
+
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
