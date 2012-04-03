@@ -39,7 +39,7 @@
                     		<h1><?php echo $name ?></h1>
                 	</div>
 
-			<img height=500 width=200 src="luchamask.png"/><br/>			
+			<img height=500 width=200 src="luchaMask.png"/><br/>			
 			<form action="updateProfileController.php" method=POST>
 				Update Profile Picture: <input type="file" enctype="multipart/form-data" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
