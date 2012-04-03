@@ -16,6 +16,10 @@ $email = $_POST['email'];
 $query1 = "UPDATE Users SET email = '$email' WHERE player_id = $pid";
 }
 
+if(isset($_POST['desc'])){
+$desc = $_POST['desc'];
+$query2 = "UPDATE Users SET description = '$desc' WHERE player_id = $pid";
+}
 //$pic = $_FILES['profPic']['name'];
 //if($pic){
 //	$imgFile = fopen("images/".$pid, "w");

@@ -15,12 +15,13 @@
 	<?php include 'topbar.php' ?>
           <div class="row-fluid">
 <?php  
-	$query = "SELECT email, profile_pic FROM Users WHERE player_id = '$id'";
+	$query = "SELECT email, profile_pic, description FROM Users WHERE player_id = '$id'";
 	$result = mysqli_query($db, $query);
 
 	if ($row = mysqli_fetch_array($result)){
 		$email = $row['email'];
 		$pic = $row['profile_pic'];
+		$desc = $row['description'];
 	}
 
 //	$imgFile = fopen("images/".$id, "r");	
@@ -43,6 +44,7 @@
 				Update Profile Picture: <input type="file" enctype="multipart/form-data" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
 				Update E-mail: <input type="text" name="email" value=<?php echo $email ?>><br/>
+				Update Description: <input type="text" name="desc" value=<?php echo $desc ?>><br/>
 				<input type="submit" name="submit" value=update><br/>
 			</form>
 
