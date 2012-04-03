@@ -85,7 +85,7 @@ INSERT INTO Games (`title`, `rating`, `description`, `path`, `titleID`, `author`
 
 INSERT INTO Users (first_name, last_name, email, password) VALUES ('Bob', 'Smith', 'bsmith@mail.umw.edu', 'heysup');
 
-INSERT INTO Avatars (game_id, owner_id, user_name) VALUES ('rps', 1, 'Default');
+INSERT INTO Avatars (game_id, owner_id, user_name) VALUES ('rps', 1, 'WinRAWR');
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Frogger 2","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Syro, Year of the Dragon","K+");
 -- INSERT INTO Games (`title`,`rating`) VALUES ("Grand Theft Auto III","M");
