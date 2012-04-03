@@ -23,15 +23,22 @@
 		$pic = $row['profile_pic'];
 	}
 
-	$imgFile = fopen("images/".$id, "r");	
-	$profPic = fgets($imgFile);
-	fclose($imgFile);
+//	$imgFile = fopen("images/".$id, "r");	
+//	$profPic = fgets($imgFile);
+//	fclose($imgFile);
 ?>
-		<div id="title-box">
-                    <h1><?php echo $name ?></h1>
-                </div>
-		<div class="span3" id="sidebar">
-			<img src=<?php echo $profPic ?>/><br/>			
+		<div class="span2" id="sidebar"><br/>
+			<form action="deleteAccountController.php" method=POST>
+				<input class="btn btn-danger" type="submit" name="GET PWNED" value="Delete Account">
+			</form>
+                </div><!--sidebar-->
+
+		<div class="span8" id="dash">
+			<div id="title-box">
+                    		<h1><?php echo $name ?></h1>
+                	</div>
+
+			<img height=500 width=200 src="luchamask.png"/><br/>			
 			<form action="updateProfileController.php" method=POST>
 				Update Profile Picture: <input type="file" enctype="multipart/form-data" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
@@ -39,15 +46,10 @@
 				<input type="submit" name="submit" value=update><br/>
 			</form>
 
-
-		<form action="deleteAccountController.php" method=POST>
-			<input type = "submit" name="GET PWNED" value="Delete Account">
-		</form>
-               </div><!--sidebar-->
-
-		<div class="span8" id="body">
-			E-mail : <?php echo $email ?><br/>			
                </div><!--body-->
+
+
+
 
           </div><!--row-fluid-->
      </div><!--container-fluid-->

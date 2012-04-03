@@ -34,6 +34,17 @@ body {
      padding-left:5px;
 }
 
+#dash {
+	border-radius: 20px;
+     -moz-border-radius: 20px;
+     -webkit-border-radius: 20px;
+
+
+     background: #fff;
+     text-align: center;
+     padding-left: 15px;
+}
+
 #body {
      border-radius: 20px;
      -moz-border-radius: 20px;
