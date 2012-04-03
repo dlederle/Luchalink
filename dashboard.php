@@ -44,7 +44,7 @@
 				Update Profile Picture: <input type="file" enctype="multipart/form-data" name="profPic"><br/>
 				Change Display Name: <input type="text" name="displayName" value=<?php echo $name ?>><br/>
 				Update E-mail: <input type="text" name="email" value=<?php echo $email ?>><br/>
-				Update Description: <input type="text" name="desc" value=<?php echo $desc ?>><br/>
+				Update Description: <textarea class="input-xlarge" rows="2" name="desc" value=<?php echo "$desc" ?>></textarea><br/>
 				<input type="submit" name="submit" value=update><br/>
 			</form>
 
