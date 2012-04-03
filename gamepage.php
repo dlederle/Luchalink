@@ -33,7 +33,7 @@
          <div class="row-fluid">
                <div id="title-box">
 			<h1><?php echo $gameTitle ?></h1>
-			<h3>Made by: <a href="authorProfile.html"><?php echo $author ?></a></h3>
+			<h3>Made by: <?php echo $author ?></h3>
                </div>
                <div class="span2" id="sidebar">
                     <h2>Highscores:</h2>
@@ -48,15 +48,15 @@
 				$query = "SELECT * FROM Avatars INNER JOIN Games ON Avatars.game_id = '$currGame';";
 					$result = mysqli_query($db, $query)
 						or die("error querying database");
-					echo "<br>Name | Wins/Losses</br>";
+					echo "<h4>Name | Wins/Losses</h4>";
 					#Highscore table
 					while($row = mysqli_fetch_array($result)) {
 						$avatar= $row['user_name'];
 						$wins = $row['wins'];
 						$losses = $row['losses'];
-						$wLRatio = $wins/$losses;
+						//$wLRatio = $wins/$losses;
 						#echo "<li><a href=gamepage.php?gameID=$avatar>$wLRatio</a></li>"; 
-						echo "<br>$avatar | $wins/"."$losses</br>";
+						echo "$avatar | $wins/"."$losses";
 					}
 			?>
                     </ul>
@@ -65,7 +65,14 @@
                <div class="span8" id="body">
 				<p><?php echo "$desc"?></p>
 <?php
-	if($id)
+	if(isset($id)) {
+		//Check if current player has joined the game
+		$query1 = "SELECT * FROM Avatars WHERE Avatars.game_id = '$currGame' AND Avatars.owner_id = $id";
+		$result1 = mysqli_query($db, $query1);
+		//if($result1) {
+		if($row = mysqli_fetch_array($result1)) {
+			$userName = $row['user_name'];
+			echo "<h2>Welcome back, $userName</h2>"
 ?>
 		<h3><a href='<?php echo "$path$currGame.html" ?>' id="launchLink">Launch Rock, Paper, Shotgun</a></h3>
 <script>
@@ -73,6 +80,28 @@ $(document).ready(function () {
 	$('#launchLink').colorbox({height: "85%", width: "85%"});
 });
 </script>
+<?php
+		} else {
+?>
+	<h2>Join This Game!</h2>	
+<?php
+//echo "<form class='pull-left form-stacked' action='joinGameController.php?game=$currGame&player=$id' method = 'GET'>";
+?>
+	<form class='pull-left form-stacked' action='joinGameController.php' method = 'GET'>
+<?php
+	echo "<input type='hidden' name='game' value=$currGame>";
+	echo "<input type='hidden' name='player' value=$id>";
+?>
+		<label for="username">Desired Username: </label>
+		<input type=text size=20 name="username">	
+		<input class="btn primary" type=submit value="Join this game">
+	</form>
+<?php
+		}
+	} else {
+		echo "<h3>Please log in to play this game!</h3>";
+	}
+?>
                </div><!--body-->
           </div><!--row-fluid-->
      </div><!--container-fluid-->
