@@ -13,7 +13,7 @@
           //Check, if not null, user exists, return an error message
      //else:
           //Else, create the user and log them in
-          $query = "INSERT INTO Users (email, password) VALUES ('$email', '$pw')";
+          $query = "INSERT INTO Users (email, password, description) VALUES ('$email', '$pw', 'A Luchalink User')";
           $result = mysqli_query($db, $query);
 //          echo($query);
           header("Location: loginController.php?email=$email&password=$pw&submit=Log-In");
